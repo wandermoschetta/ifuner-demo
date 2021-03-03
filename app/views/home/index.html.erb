@@ -2,9 +2,14 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">iFuner</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/sign_in"><span class="orange">new</span> Entrar</a></li>
-        <li><a href="/sign_up">Cadastrar</a></li>
-        <li><a href="/sign_out">Sair</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to edit_user_registration_path do %><span class="orange">edit</span> Edit registration<% end %>  </li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>        
+        <% else %>
+          <li><%= link_to('Register', new_user_registration_path) %></li>
+          <li><%= link_to('Login', new_user_session_path)  %></li>  
+        <% end %>  
+        
       </ul>
     </div>
   </nav>
