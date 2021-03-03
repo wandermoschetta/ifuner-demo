@@ -1,56 +1,60 @@
-<div class="container left">
-  
-   <div class="row">
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="card-content white-text">
-            <span class="card-title"><h2>Log in</h2></span>
-            
-            
-              <div class="field">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              </div>
+ <head>
+     <%= yield(:head) %>
+ </head>
 
-              <div class="field">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "current-password" %>
-              </div>
+ <% stylesheet 'login' %>
 
-              <% if devise_mapping.rememberable? %>
-                <div class="field">
-                  <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
-                </div>
-              <% end %>
-              
-              <%= render "devise/shared/links" %>
-          </div>
-          <div class="card-action">
-            <div class="actions">
-                <%= f.submit "Log in", class: "waves-effect waves-light btn" %>
-            </div>  
-          </div>
+ <div class="container-login teal lighten-2">
 
-        <% end %>
-      </div>
-    </div>
-    
-    <div class="col s12 m6">
-      
-        <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_2rmnmmsh.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop autoplay></lottie-player>
-      
-    </div>
-     
-   </div>
-  
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-  
-</div>
+     <div class="row row-login white">
+         <div class="col col-left s12 m6 grey lighten-2">
+             <div class="card">
+                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                 <div class="card-content white-text">
+                     <span class="card-title">
+                         <%= image_tag "bird.png", class: "bird_icon_login" %>
+                         <h4 class="black-text"> Log in to your account</h4>
+                     </span>
 
 
+                     <div class="field">
+                         <%= f.label :email %><br />
+                         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                     </div>
 
-  
+                     <div class="field">
+                         <%= f.label :password %><br />
+                         <%= f.password_field :password, autocomplete: "current-password" %>
+                     </div>
 
+                     <% if devise_mapping.rememberable? %>
+                     <div class="field">
+                         <%= f.check_box :remember_me %>
+                         <%= f.label :remember_me %>
+                     </div>
+                     <% end %>
+
+                     <%= render "devise/shared/links" %>
+                 </div>
+                 <div class="card-action">
+                     <div class="actions">
+                         <%= f.submit "Log in", class: "waves-effect waves-light btn" %>
+                     </div>
+                 </div>
+
+                 <% end %>
+             </div>
+         </div>
+
+         <div class="col col-left s12 m6">
+
+             <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_2rmnmmsh.json" background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay></lottie-player>
+
+         </div>
+
+     </div>
+
+     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+ </div>
